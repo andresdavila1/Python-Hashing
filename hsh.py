@@ -75,9 +75,9 @@ def hash():
     hash = input("What type of hash do you want?\n(MD5, SHA1, SHA224, SHA256, SHA384, SHA512)\n")
 
     if hash == "md5" or hash =="MD5" or hash =="mD5" or hash == "Md5":
-        salt = int(input("Salt or not? Enter 1 for yes, 0 for no.\n"))
+        salt = (input("Salt or not? Yes or No\n"))
 
-        if salt == 1:
+        if salt != "no" or salt != "NO" or salt != "No":
             value = input("Enter password: ")
             hashed = lol.md5Salt(value)
             print("Password is: ", hashed)
@@ -87,9 +87,9 @@ def hash():
             print("Password is:", hashed)
     
     if hash == "sha1" or hash == "SHA1":
-        salt = int(input("Salt or not? Enter 1 for yes, 0 for no.\n"))
+        salt = (input("Salt or not? Yes or No\n"))
 
-        if salt == 1:
+        if salt != "no" or salt != "NO" or salt != "No":
             value = input("Enter password: ")
             hashed = lol.sha1Salt(value)
             print("Password is: ", hashed)
@@ -99,9 +99,9 @@ def hash():
             print("Password is:",hashed)
 
     if hash == "sha224" or hash == "SHA224":
-        salt = int(input("Salt or not? Enter 1 for yes, 0 for no.\n"))
+        salt = (input("Salt or not? Yes or No\n"))
 
-        if salt == 1:
+        if salt != "no" or salt != "NO" or salt != "No":
             value = input("Enter password: ")
             hashed = lol.sha224Salt(value)
             print("Password is: ", hashed)
@@ -111,9 +111,9 @@ def hash():
             print("Password is:",hashed)
 
     if hash == "sha256" or hash == "SHA256":
-        salt = int(input("Salt or not? Enter 1 for yes, 0 for no.\n"))
+        salt = (input("Salt or not? Yes or No\n"))
 
-        if salt == 1:
+        if salt != "no" or salt != "NO" or salt != "No":
             value = input("Enter password: ")
             hashed = lol.sha256Salt(value)
             print("Password is: ", hashed)
@@ -122,9 +122,9 @@ def hash():
             hashed = lol.sha256(value)
             print("Password is:",hashed)
     if hash == "sha384" or hash == "SHA384":
-        salt = int(input("Salt or not? Enter 1 for yes, 0 for no.\n"))
+        salt = (input("Salt or not? Yes or No\n"))
 
-        if salt == 1:
+        if salt != "no" or salt != "NO" or salt != "No":
             value = input("Enter password: ")
             hashed = lol.sha384Salt(value)
             print("Password is: ", hashed)
@@ -133,9 +133,9 @@ def hash():
             hashed = lol.sha384(value)
             print("Password is:",hashed)
     if hash == "sha512" or hash == "SHA512":
-        salt = int(input("Salt or not? Enter 1 for yes, 0 for no.\n"))
+        salt = (input("Salt or not? Yes or No\n"))
 
-        if salt == 1:
+        if salt != "no" or salt != "NO" or salt != "No":
             value = input("Enter password: ")
             hashed = lol.sha512Salt(value)
             print("Password is: ", hashed)
@@ -197,7 +197,16 @@ def playGame():
 
 def main():
     os.system('clear')
-    hash()
+
+    test = input("Wanna try hashing a word? Yes or No \n")
+    while True:
+        if test == "no" or test == "No" or test == "N" or test =="NO":
+            break
+
+        else:
+            hash()
+            test = input(("\nHash Again?"))
+    
     playGame()
 
 
@@ -207,6 +216,5 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 
 
