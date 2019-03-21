@@ -9,15 +9,13 @@ class Hash(object):
         self.hash = hash
 
     def md5hash(self, helloSexy):
-        
         self.hash = letshash.md5(helloSexy.encode())
         return self.hash.hexdigest()
 
     def md5Salt(self,helloSexy): 
-
         salt = random.uuid4().hex
         #Returns the hash specifying the salt at the end
-        self. hash = letshash.md5(salt.encode() + helloSexy.encode()).hexdigest() + ":" + salt
+        self. hash = (letshash.md5(salt.encode() + helloSexy.encode()).hexdigest()) + " : " + salt
         return self.hash
 
     def sha1(self,helloSexy): 
@@ -27,18 +25,18 @@ class Hash(object):
     def sha1Salt(self,helloSexy): 
         salt = random.uuid4().hex
         #Returns the hash specifyin the salt at the end
-        self.hash = letshash.sha1( helloSexy.encode()).hexdigest() + salt.encode() + ":" + salt
+        self. hash = (letshash.sha1(salt.encode() + helloSexy.encode()).hexdigest()) + " : " + salt
         return self.hash
 
     def sha224(self,helloSexy): 
-        self.hash = letshash.sha224(helloSexy.encode())
-        return self.hash.hexdigest()
+        self.hash = letshash.sha224(helloSexy.encode().hexdigest())
+        return self.hash
 
     def sha224Salt(self, helloSexy): 
         salt = random.uuid4().hex
         #Returns the hash specifying the salt at the end
-        self.hash = letshash.sha224(salt.encode() + helloSexy.encode()).hexdigest() + ":" +salt
-        return self.hash.hexdigest()
+        self. hash = (letshash.sha224(salt.encode() + helloSexy.encode()).hexdigest()) + " : " + salt
+        return self.hash
 
     def sha256(self,helloSexy): 
         self.hash = letshash.sha256(helloSexy.encode())
@@ -47,8 +45,8 @@ class Hash(object):
     def sha256Salt(self, helloSexy): 
         salt = random.uuid4().hex
         #Returns the hash specifying the salt at the end
-        self.hash = letshash.sha256(salt.encode() + helloSexy.encode()).hexdigest() + ":" +salt
-        return self.hash.hexdigest()
+        self. hash = (letshash.sha256(salt.encode() + helloSexy.encode()).hexdigest()) + " : " + salt
+        return self.hash
 
     def sha384(self,helloSexy):
         self.hash = letshash.sha384(helloSexy.encode())
@@ -57,8 +55,8 @@ class Hash(object):
     def sha384Salt(self, helloSexy): 
         salt = random.uuid4().hex
         #Returns the hash specifying the salt at the end
-        self.hash = letshash.sha384(salt.encode() + helloSexy.encode()).hexdigest() + ":" +salt
-        return self.hash.hexdigest()
+        self. hash = (letshash.sha384(salt.encode() + helloSexy.encode()).hexdigest()) + " : " + salt
+        return self.hash
 
     def sha512(self,helloSexy): 
         self.hash = letshash.sha512(helloSexy.encode())
@@ -67,8 +65,8 @@ class Hash(object):
     def sha512Salt(self, helloSexy):
         salt = random.uuid4().hex
         #Returns the hash specifying the salt at the end
-        self.hash = letshash.sha512(salt.encode() + helloSexy.encode()).hexdigest() + ":" +salt
-        return self.hash.hexdigest()
+        self. hash = (letshash.sha512(salt.encode() + helloSexy.encode()).hexdigest()) + " : " + salt
+        return self.hash
 
 def hash():
     lol = Hash()
@@ -77,7 +75,7 @@ def hash():
     if hash == "md5" or hash =="MD5" or hash =="mD5" or hash == "Md5":
         salt = (input("Salt or not? Yes or No\n"))
 
-        if salt != "no" or salt != "NO" or salt != "No":
+        if salt == "yes" or salt == "YES" or salt == "Yes":
             value = input("Enter password: ")
             hashed = lol.md5Salt(value)
             print("Password is: ", hashed)
@@ -89,7 +87,7 @@ def hash():
     if hash == "sha1" or hash == "SHA1":
         salt = (input("Salt or not? Yes or No\n"))
 
-        if salt != "no" or salt != "NO" or salt != "No":
+        if salt == "yes" or salt == "YES" or salt == "Yes":
             value = input("Enter password: ")
             hashed = lol.sha1Salt(value)
             print("Password is: ", hashed)
@@ -101,7 +99,7 @@ def hash():
     if hash == "sha224" or hash == "SHA224":
         salt = (input("Salt or not? Yes or No\n"))
 
-        if salt != "no" or salt != "NO" or salt != "No":
+        if salt == "yes" or salt == "YES" or salt == "Yes":
             value = input("Enter password: ")
             hashed = lol.sha224Salt(value)
             print("Password is: ", hashed)
@@ -113,7 +111,7 @@ def hash():
     if hash == "sha256" or hash == "SHA256":
         salt = (input("Salt or not? Yes or No\n"))
 
-        if salt != "no" or salt != "NO" or salt != "No":
+        if salt == "yes" or salt == "YES" or salt == "Yes":
             value = input("Enter password: ")
             hashed = lol.sha256Salt(value)
             print("Password is: ", hashed)
@@ -121,10 +119,11 @@ def hash():
             value = input("Enter password: ")
             hashed = lol.sha256(value)
             print("Password is:",hashed)
+
     if hash == "sha384" or hash == "SHA384":
         salt = (input("Salt or not? Yes or No\n"))
 
-        if salt != "no" or salt != "NO" or salt != "No":
+        if salt == "yes" or salt == "YES" or salt == "Yes":
             value = input("Enter password: ")
             hashed = lol.sha384Salt(value)
             print("Password is: ", hashed)
@@ -132,10 +131,11 @@ def hash():
             value = input("Enter password: ")
             hashed = lol.sha384(value)
             print("Password is:",hashed)
+
     if hash == "sha512" or hash == "SHA512":
         salt = (input("Salt or not? Yes or No\n"))
 
-        if salt != "no" or salt != "NO" or salt != "No":
+        if salt == "yes" or salt == "YES" or salt == "Yes":
             value = input("Enter password: ")
             hashed = lol.sha512Salt(value)
             print("Password is: ", hashed)
@@ -196,6 +196,7 @@ def playGame():
 
 
 def main():
+
     os.system('clear')
 
     test = input("Wanna try hashing a word? Yes or No \n")
@@ -216,5 +217,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
